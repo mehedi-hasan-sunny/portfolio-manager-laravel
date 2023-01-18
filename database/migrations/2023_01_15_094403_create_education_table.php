@@ -20,6 +20,9 @@ return new class extends Migration
             $table->longText('description');
             $table->string('major_in');
             $table->year('passing_year')->nullable();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('created_by')->nullable()->constrained('users');
+            $table->foreignId('updated_by')->nullable()->constrained('users');
             $table->timestamps();
         });
     }

@@ -20,6 +20,9 @@ return new class extends Migration {
             $table->date('issue_date');
             $table->string('url', 2048)->nullable();
             $table->string('file')->nullable();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('created_by')->nullable()->constrained('users');
+            $table->foreignId('updated_by')->nullable()->constrained('users');
             $table->timestamps();
         });
     }

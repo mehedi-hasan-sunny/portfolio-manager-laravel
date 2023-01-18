@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('project_settings', function (Blueprint $table) {
             $table->id();
-            $table->uuid();
-            $table->text('title');
-            $table->string('thumbnail');
-            $table->longText('description');
-            $table->date('from');
-            $table->date('to')->nullable();
-            $table->string('slug')->nullable();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('settings_id')->constrained('settings');
+            $table->string('api_name')->unique();
+            $table->string('api_url');
+            $table->text('api_params')->nullable();
+            $table->text('api_token')->nullable();
+            $table->string('api_username')->nullable();
+            $table->string('api_password')->nullable();
+            $table->json('api_json_structure');
             $table->foreignId('created_by')->nullable()->constrained('users');
             $table->foreignId('updated_by')->nullable()->constrained('users');
             $table->timestamps();
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('project_settings');
     }
 };

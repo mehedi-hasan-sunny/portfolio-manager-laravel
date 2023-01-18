@@ -16,8 +16,10 @@ return new class extends Migration {
             $table->id();
             $table->text('title');
             $table->longText('description');
-            $table->string('icon')->nullable();
             $table->string('url', 2048)->nullable();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('created_by')->nullable()->constrained('users');
+            $table->foreignId('updated_by')->nullable()->constrained('users');
             $table->timestamps();
         });
     }
