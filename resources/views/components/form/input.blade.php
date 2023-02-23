@@ -8,8 +8,8 @@
         <label class="form-label" for="{{$attributes['id']}}">{{$label}}</label>
     @endisset
     @if($type !== 'textarea')
-        <input id="{{$attributes['id']}}" class="form-control {{$class}}" type="{{$type}}" {{$attributes}}/>
+        <input  id="{{$attributes['id']}}" class="form-control {{$attributes['class'] ?? ''}}" type="{{$type}}" {{$attributes->except(['id', 'class'])}}/>
     @else
-        <textarea id="{{$attributes['id']}}" class="form-control {{$class}}"/>
+        <textarea id="{{$attributes['id']}}" class="form-control {{$attributes['class'] ?? ''}}"/>
     @endif
 </div>

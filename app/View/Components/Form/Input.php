@@ -9,8 +9,7 @@ class Input extends Component
     public function __construct(
         public string $type = 'text',
         public $label = null,
-        public string $errorMessage = '',
-        public $attributes = [],
+        public string $errorMessage = ''
     )
     {
         //
