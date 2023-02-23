@@ -1,0 +1,12 @@
+.admin-dashboard-button {
+    height: 8rem;
+    width: 11.9rem;
+    font-size: 1.25rem;
+    background-color: hsla(0, 0%, 100%, .75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: all .25s ease-in-out;
+}
