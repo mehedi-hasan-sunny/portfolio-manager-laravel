@@ -1,4 +1,4 @@
-.admin-dashboard-button {
+.user-dashboard-button {
     height: 8rem;
     width: 11.9rem;
     font-size: 1.25rem;
@@ -9,4 +9,11 @@
     justify-content: center;
     gap: 1rem;
     transition: all .25s ease-in-out;
+}
+
+
+@media screen and (max-width: 575px){
+    .user-dashboard-button {
+        width: 100% !important;
+    }
 }

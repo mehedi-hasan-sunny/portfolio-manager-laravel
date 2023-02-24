@@ -5,47 +5,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['prefix' => '/admin'], function () {
-
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard.view');
-
-    Route::get('/links', function () {
-        return view('admin.dashboard');
-    })->name('admin.links.view');
-
-    Route::get('/experiences', function () {
-        return view('admin.dashboard');
-    })->name('admin.experiences.view');
-
-    Route::get('/educations', function () {
-        return view('admin.dashboard');
-    })->name('admin.educations.view');
-
-    Route::get('/certifications', function () {
-        return view('admin.dashboard');
-    })->name('admin.certifications.view');
-
-    Route::get('/skills', function () {
-        return view('admin.dashboard');
-    })->name('admin.skills.view');
-
-    Route::get('/testimonials', function () {
-        return view('admin.dashboard');
-    })->name('admin.testimonials.view');
-
-    Route::get('/services', function () {
-        return view('admin.dashboard');
-    })->name('admin.services.view');
-
-    Route::get('/blogs', function () {
-        return view('admin.dashboard');
-    })->name('admin.blogs.view');
-    
-    Route::get('/settings', function () {
-        return view('admin.dashboard');
-    })->name('admin.settings.view');
-
+Route::group(['prefix' => '/user'], function () {
+    Route::get('/dashboard', "App\Http\Controllers\User\DashboardController@index")->name('user.dashboard.view');
+    Route::get('/links', "App\Http\Controllers\User\DashboardController@index")->name('user.links.view');
+    Route::get('/experiences', "App\Http\Controllers\User\DashboardController@index")->name('user.experiences.view');
+    Route::get('/educations', "App\Http\Controllers\User\DashboardController@index")->name('user.educations.view');
+    Route::get('/certifications', "App\Http\Controllers\User\DashboardController@index")->name('user.certifications.view');
+    Route::get('/skills', "App\Http\Controllers\User\DashboardController@index")->name('user.skills.view');
+    Route::get('/testimonials', "App\Http\Controllers\User\DashboardController@index")->name('user.testimonials.view');
+    Route::get('/services', "App\Http\Controllers\User\DashboardController@index")->name('user.services.view');
+    Route::get('/blogs', "App\Http\Controllers\User\DashboardController@index")->name('user.blogs.view');
+    Route::get('/settings', "App\Http\Controllers\User\DashboardController@index")->name('user.settings.view');
 });
 
