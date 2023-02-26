@@ -3,6 +3,9 @@
         if (!isset($attributes['id'])){
             $attributes['id'] = uniqid("input-");
         }
+        if (!isset($errorMessage)){
+            $attributes['class'] += ' is-invalid';
+        }
     @endphp
     @isset($label)
         <label class="form-label" for="{{$attributes['id']}}">

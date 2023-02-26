@@ -18,3 +18,7 @@ Route::group(['prefix' => '/user'], function () {
     Route::get('/settings', "App\Http\Controllers\User\DashboardController@index")->name('user.settings.view');
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
