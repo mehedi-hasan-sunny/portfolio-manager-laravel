@@ -3,17 +3,23 @@
         if (!isset($attributes['id'])){
             $attributes['id'] = uniqid("input-");
         }
-        if (!isset($errorMessage)){
+        if (!isset($errorMessage) && !empty($errorMessage)){
+            if(!$attributes['class']){
+                $attributes['class'] = '';
+            }
             $attributes['class'] += ' is-invalid';
         }
     @endphp
     @isset($label)
         <label class="form-label" for="{{$attributes['id']}}">
-            {{$label}} @if(!isset($attributes['required']))<span class="text-muted">(Optional)</span>@endif
+            {{$label}}
+            @if(!isset($attributes['required']))
+                <span class="text-muted">(Optional)</span>
+            @endif
         </label>
     @endisset
     @if($type !== 'textarea')
-        <input  id="{{$attributes['id']}}" class="form-control {{$attributes['class'] ?? ''}}" type="{{$type}}"
+        <input id="{{$attributes['id']}}" class="form-control {{$attributes['class'] ?? ''}}" type="{{$type}}"
                 {{$attributes->except(['id', 'class'])}}/>
     @else
         <textarea id="{{$attributes['id']}}" class="form-control {{$attributes['class'] ?? ''}}"

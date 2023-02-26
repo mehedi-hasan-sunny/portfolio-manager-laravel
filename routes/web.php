@@ -7,7 +7,10 @@ Route::get('/', function () {
 });
 Route::group(['prefix' => '/user'], function () {
     Route::get('/dashboard', "App\Http\Controllers\User\DashboardController@index")->name('user.dashboard.view');
-    Route::get('/links', "App\Http\Controllers\User\DashboardController@index")->name('user.links.view');
+    Route::resource('links', App\Http\Controllers\User\LinksController::class, ['names' => [
+        'index' => 'user.links.index',
+        'store' => 'user.links.store'
+    ]]);
     Route::get('/experiences', "App\Http\Controllers\User\DashboardController@index")->name('user.experiences.view');
     Route::get('/educations', "App\Http\Controllers\User\DashboardController@index")->name('user.educations.view');
     Route::get('/certifications', "App\Http\Controllers\User\DashboardController@index")->name('user.certifications.view');

@@ -23,7 +23,7 @@ class DashboardController extends Controller
             [
                 "name" => "Link Categories",
                 "icon" => "las la-link",
-                "href" => route('user.links.view')
+                "href" => route('user.links.index')
             ],
             [
                 "name" => "Experiences",
